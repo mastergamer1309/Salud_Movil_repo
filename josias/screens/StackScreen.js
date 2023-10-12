@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 const StackScreen = () => {
     return(
         <View>
@@ -8,9 +8,8 @@ const StackScreen = () => {
                     fontSize: 30,
                     textAlign: "center",
                     marginTop: "20%"
-
                 }}
-           >StackScreen Screen </Text>
+           >Stack Screen </Text>
         </View>
     );
 }
