@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
+import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-const MapScreen = () => {
-    return(
+const DrugsScreen = () => {
+    return(     
         <View>
             <Text
                 style={{
@@ -10,9 +10,9 @@ const MapScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >Map Screen</Text>
+           >Drugs Screen</Text>
         </View>
     );
     }
 
-export default MapScreen;  
+export default DrugsScreen;  

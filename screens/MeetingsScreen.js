@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
+import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-const SettingsScreen = () => {
-    return(
+const MeetingsScreen = () => {
+    return(     
         <View>
             <Text
                 style={{
@@ -10,9 +10,9 @@ const SettingsScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >Settings Screen</Text>
+           >MeetingsScreen</Text>
         </View>
     );
     }
 
-export default SettingsScreen;  
+export default MeetingsScreen;  

@@ -1,17 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
+import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-const StackScreen = () => {
-    return(
+const MapScreen = () => {
+    return(     
         <View>
             <Text
                 style={{
                     fontSize: 30,
                     textAlign: "center",
                     marginTop: "20%"
+
                 }}
-           >Stack Screen </Text>
+           >Map Screen</Text>
         </View>
     );
-}
+    }
 
-export default StackScreen;  
+export default MapScreen;  

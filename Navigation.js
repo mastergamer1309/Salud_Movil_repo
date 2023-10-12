@@ -1,45 +1,34 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-//screens           
-import HomeScreen from "./josias/screens/HomeScreen";
-import SettingsScreen from "./josias/screens/SettingsScreen";
-import StackScreen from "./josias/screens/StackScreen";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-const HomeStackNavigator =  createNativeStackNavigator();
-function MyStack(){
-    return(
-        <HomeStackNavigator.Navigator
-            initialRouteName="HomeScreen"
-        
-        >
-            <HomeStackNavigator.Screen
-                name = "homeScreen"
-                component={HomeScreen}
-            />
-            <HomeStackNavigator.Screen
-                name="Stack"
-                component={StackScreen}
-            />
-        </HomeStackNavigator.Navigator>
-    )
-}
+//importar pantallas previamente creadas
+import HomeScreen from "./screens/HomeScreen";
+import SettingsScreen from "./screens/SettingsScreen";
+import StackScreen from "./screens/StackScreen";
+import DrugsScreen from "./screens/DrugsScreen";
+import MeetingsScreen from "./screens/MeetingsScreen"
+import MapScreen from "./screens/MapScreen"
 
 const Tab = createBottomTabNavigator();
-
+//crear los componentes
 function MyTabs(){
-    return (
+    return(
         <Tab.Navigator>
-            Tab.Screen name="Home" component={HomeScreen} /
-            </Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeScreen}/>
+            <Tab.Screen name="DrugScreen" component={DrugsScreen}/>
+            <Tab.Screen name="MeetingScreen" component={MeetingsScreen}/>
+            <Tab.Screen name="MapScreen" component={MapScreen}/>
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
+
     );
 }
+//exportar las pantallas
 export default function Navigation(){
     return(
         <NavigationContainer>
-            <MyTabs />
-        </NavigationContainer>
+            <MyTabs/>
+            </NavigationContainer>
     );
 }
