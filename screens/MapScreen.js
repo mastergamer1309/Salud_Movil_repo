@@ -10,7 +10,7 @@ const MapScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >Map Screen</Text>
+           >Mapa</Text>
         </View>
     );
     }

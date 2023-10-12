@@ -10,7 +10,7 @@ const DrugsScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >Drugs Screen</Text>
+           >Medicinas</Text>
         </View>
     );
     }

@@ -10,7 +10,7 @@ const MeetingsScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >MeetingsScreen</Text>
+           >Citas</Text>
         </View>
     );
     }

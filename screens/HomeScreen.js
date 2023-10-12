@@ -16,26 +16,7 @@ const HomeScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >Home Screen </Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Stack")}
-                style={{
-                    backgroundColor: "#614BC3",
-                    padding: 10,
-                    marginTop: "20%",
-                    width: "50%",
-                    alingSelf: "center",
-                    borderRadius: 10,
-                }}
-            >
-                <Text
-                    style={{
-                        fontSize: 15,
-                        textAlign: "center",
-                        color: "white",
-                    }}
-                >Go to Stack Screen</Text>
-            </TouchableOpacity>
+           >Home  </Text>
         </View>
     );
 }
