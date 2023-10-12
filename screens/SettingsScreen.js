@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 const SettingsScreen = () => {
 
     const navigation = useNavigation();
-
+    //boton
     return( 
         <View>
             <Text
@@ -14,7 +14,8 @@ const SettingsScreen = () => {
                     marginTop: "20%"
 
                 }}
-           >Configuraciones</Text>
+           >Perfil</Text>
+           
            <TouchableOpacity
                 onPress={() => navigation.navigate("Stack")}
                 style={{
@@ -32,7 +33,7 @@ const SettingsScreen = () => {
                         textAlign: "center",
                         color: "white",
                     }}
-                >Perfil</Text>
+                >Log Out</Text>
             </TouchableOpacity>
         </View>
     );

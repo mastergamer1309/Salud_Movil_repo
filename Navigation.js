@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const SettingsStackNavigator = createNativeStackNavigator();
 
@@ -15,7 +15,7 @@ function MyStack(){
             initialRouteName="ConfiguracionesScreen"
         >   
             <SettingsStackNavigator.Screen
-                name="Configuracion"
+                name="User"
                 component={SettingsScreen}
             />
             <SettingsStackNavigator.Screen
@@ -106,9 +106,9 @@ function MyTabs(){
             name="Configuraciones" 
             component={MyStack}
             options={{
-                tabBarLabel: 'Configuraciones',
+                tabBarLabel: 'Usuario',
                 tabBarIcon: ({color, size}) => (
-                    <Ionicons name="settings-outline" color={color} size={size} />
+                    <AntDesign name="user" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
                 headerShown: false,
