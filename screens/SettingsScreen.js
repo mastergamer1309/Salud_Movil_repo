@@ -10,7 +10,7 @@ const SettingsScreen = () => {
             <Text
                 style={{
                     fontSize: 30,
-                    textAlign: "center",
+                    textAlign: "auto",
                     marginTop: "20%"
 
                 }}
