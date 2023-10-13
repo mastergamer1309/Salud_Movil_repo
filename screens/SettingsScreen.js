@@ -11,16 +11,15 @@ const SettingsScreen = () => {
     const OnSignInPressed = () => { 
         navigation.navigate('SignIn')
     }
-    
+
     //boton
     return( 
         <View style={styles.signIn}>
             <Text
                 style={{
                     fontSize: 30,
-                    textAlign: "center",
+                    alignSelf: "center",
                     marginTop: "20%"
-
                 }}
            >Perfil</Text>
 {/*            

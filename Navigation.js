@@ -121,7 +121,7 @@ function MyTabs(){
             />
 
 
-        <Stack.Screen name='SignIn' component={SignIn} options={{
+        {/* <Stack.Screen name='SignIn' component={SignIn} options={{
             tabBarButton: () => null,
         tabBarVisible: false,
         }}/>
@@ -140,15 +140,29 @@ function MyTabs(){
         <Stack.Screen name='HomeScreen' component={HomeScreen} options={{
             tabBarButton: () => null,
             tabBarVisible: false,
-        }}/>
+        }}/> */}
         </Tab.Navigator>
     );
 }
+
+function MyStacks(){
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='SignIn' component={SignIn} />
+          <Stack.Screen name='SignUp' component={SignUp} />
+          <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
+          <Stack.Screen name='NewPassword' component={NewPassword} />
+          <Stack.Screen name='HomeScreen' component={MyTabs} />
+        </Stack.Navigator>
+    )
+  }
+  
 //exportar las pantallas
 export default function Navigation(){
     return(
         <NavigationContainer>
-            <MyTabs/>
+            <MyStacks/>
+            {/* <MyTabs/> */}
         </NavigationContainer>
     );
 }
