@@ -8,7 +8,6 @@ const MapScreen = () => {
                     fontSize: 30,
                     textAlign: "center",
                     marginTop: "20%"
-
                 }}
            >Mapa</Text>
         </View>

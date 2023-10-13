@@ -39,17 +39,22 @@ import DrugsScreen from "./screens/DrugsScreen";
 import MeetingsScreen from "./screens/MeetingsScreen"
 import MapScreen from "./screens/MapScreen"
 
+import SignIn from './screens/SignIn'
+import SignUp from './screens/SignUp'
+import ForgotPassword from './screens/ForgotPassword'
+import NewPassword from './screens/NewPassword'
+
 
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 //crear los componentes
 function MyTabs(){
     return(
-        <Tab.Navigator
-            //ACA SE PONE LA RUTA INICIAL
-            initialRouteName="Home"
-            screenOptions={{
+        //ACA SE PONE LA RUTA INICIAL
+        <Tab.Navigator initialRouteName="Home" screenOptions={{
                 tabBarActiveTintColor: '#614BC3',
+                headerShown: false,
             }}
         >
             <Tab.Screen
@@ -61,7 +66,6 @@ function MyTabs(){
                     <MaterialCommunityIcons name="home" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
-                
                 
              }}
              />
@@ -116,8 +120,28 @@ function MyTabs(){
             }}
             />
 
-        </Tab.Navigator>
 
+        <Stack.Screen name='SignIn' component={SignIn} options={{
+            tabBarButton: () => null,
+        tabBarVisible: false,
+        }}/>
+        <Stack.Screen name='SignUp' component={SignUp} options={{
+        tabBarButton: () => null,
+        tabBarVisible: false,
+    }} />
+        <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{
+        tabBarButton: () => null,
+        tabBarVisible: false,
+    }}/>
+        <Stack.Screen name='NewPassword' component={NewPassword}options={{
+            tabBarButton: () => null,
+            tabBarVisible: false,
+        }} />
+        <Stack.Screen name='HomeScreen' component={HomeScreen} options={{
+            tabBarButton: () => null,
+            tabBarVisible: false,
+        }}/>
+        </Tab.Navigator>
     );
 }
 //exportar las pantallas
@@ -125,6 +149,6 @@ export default function Navigation(){
     return(
         <NavigationContainer>
             <MyTabs/>
-            </NavigationContainer>
+        </NavigationContainer>
     );
 }

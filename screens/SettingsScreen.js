@@ -1,12 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import CustomButton from '../Components/CustomButton'   
+
+
 const SettingsScreen = () => {
 
     const navigation = useNavigation();
+
+    const OnSignInPressed = () => { 
+        navigation.navigate('SignIn')
+    }
+    
     //boton
     return( 
-        <View>
+        <View style={styles.signIn}>
             <Text
                 style={{
                     fontSize: 30,
@@ -15,7 +23,7 @@ const SettingsScreen = () => {
 
                 }}
            >Perfil</Text>
-           
+{/*            
            <TouchableOpacity
                 onPress={() => navigation.navigate("Stack")}
                 style={{
@@ -33,10 +41,18 @@ const SettingsScreen = () => {
                         textAlign: "center",
                         color: "white",
                     }}
-                >Log Out</Text>
-            </TouchableOpacity>
+                >Log Out</Text> */}
+
+                <CustomButton text='LogOut' onPress={OnSignInPressed}/>
+            {/* </TouchableOpacity> */}
         </View>
     );
     }
+
+    const styles = StyleSheet.create({
+        signIn: {
+            alignItems: 'center'
+        }
+    })
 
 export default SettingsScreen;  
