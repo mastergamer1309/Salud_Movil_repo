@@ -54,7 +54,7 @@ function MyTabs(){
         //ACA SE PONE LA RUTA INICIAL
         <Tab.Navigator initialRouteName="Home" screenOptions={{
                 tabBarActiveTintColor: '#614BC3',
-                headerShown: false,
+                headerShown: true,
             }}
         >
             <Tab.Screen
@@ -66,6 +66,7 @@ function MyTabs(){
                     <MaterialCommunityIcons name="home" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
+                headerShown: true,
                 
              }}
              />
@@ -79,6 +80,7 @@ function MyTabs(){
                     <FontAwesome5 name="pills" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
+                headerShown: true,
             }}
             />
 
@@ -91,6 +93,7 @@ function MyTabs(){
                     <FontAwesome name="stethoscope" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
+                headerShown: true,
             }}
             />
 
@@ -103,6 +106,7 @@ function MyTabs(){
                     <FontAwesome name="map-pin" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
+                headerShown: true,
             }}
              />
 

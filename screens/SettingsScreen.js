@@ -22,9 +22,9 @@ const SettingsScreen = () => {
                     marginTop: "20%"
                 }}
            >Perfil</Text>
-{/*            
+            
            <TouchableOpacity
-                onPress={() => navigation.navigate("Stack")}
+                onPress={OnSignInPressed}
                 style={{
                     backgroundColor:"#614BC3",
                     padding: 10,
@@ -40,10 +40,10 @@ const SettingsScreen = () => {
                         textAlign: "center",
                         color: "white",
                     }}
-                >Log Out</Text> */}
+                >Log Out</Text>
 
-                <CustomButton text='LogOut' onPress={OnSignInPressed}/>
-            {/* </TouchableOpacity> */}
+                
+            </TouchableOpacity>
         </View>
     );
     }
