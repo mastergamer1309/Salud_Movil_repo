@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Text,
   View,
@@ -15,8 +15,35 @@ import { useNavigation } from '@react-navigation/native'
 import { useForm, Controller } from 'react-hook-form'
 
 const SignIn = () => {
-  const OnSignInPressed = data => {
-    console.log(data)
+  
+  const OnSignInPressed = (requestBody) => {
+    fetch('http://165.227.82.136:8000/users/login', {
+        method: 'POST',
+        cors: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            data_user: {
+            email: requestBody.email,
+            password: requestBody.password
+            }
+        })
+        })
+        .then(response => {
+          console.log(JSON.stringify(response))
+          response.json()
+      })
+      .then(data => {
+          console.log('Obteniendo Data')
+          console.log(data)
+      })
+      .catch(error => {
+          console.log('Error')
+          console.error(error)
+      })
+      console.log(requestBody)
+      console.log(GetData)
     navigation.navigate('HomeScreen')
   }
 

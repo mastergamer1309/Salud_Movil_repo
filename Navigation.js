@@ -58,7 +58,7 @@ function MyTabs(){
             }}
         >
             <Tab.Screen
-             name="Home" 
+             name="Inicio" 
              component={HomeScreen}
              options={{
                 tabBarLabel: 'Home',
@@ -116,7 +116,7 @@ function MyTabs(){
             options={{
                 tabBarLabel: 'Usuario',
                 tabBarIcon: ({color, size}) => (
-                    <AntDesign name="user" color={color} size={size} />
+                    <FontAwesome name="user" color={color} size={size} />
                 ),
                 headerTitleAlign: 'center',
                 headerShown: false,

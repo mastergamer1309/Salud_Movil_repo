@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import CustomButton from '../Components/CustomButton'   
 
@@ -14,6 +14,7 @@ const SettingsScreen = () => {
 
     //boton
     return( 
+        <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.signIn}>
             <Text
                 style={{
@@ -23,28 +24,9 @@ const SettingsScreen = () => {
                 }}
            >Perfil</Text>
             
-           <TouchableOpacity
-                onPress={OnSignInPressed}
-                style={{
-                    backgroundColor:"#614BC3",
-                    padding: 10,
-                    marginTop: "20%",
-                    width: "50%",
-                    alignSelf: "center",
-                    borderRadius: 10,
-                }}
-            >
-                <Text
-                    style={{
-                        fontSize: 15,
-                        textAlign: "center",
-                        color: "white",
-                    }}
-                >Log Out</Text>
-
-                
-            </TouchableOpacity>
+           <CustomButton text='Cerrar Sesión' onPress={OnSignInPressed} type={"SECONDARY"}/>
         </View>
+        </ScrollView>
     );
     }
 

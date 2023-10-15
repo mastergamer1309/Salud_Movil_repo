@@ -29,19 +29,16 @@ const SignUp = () => {
         })
         })
         .then(response => {
-            console.log('Convirtiendo a JSON')
             response.json()
         })
         .then(data => {
-            console.log('Obteniendo Data')
             console.log(data)
         })
         .catch(error => {
-            console.log('Error')
             console.error(error)
         })
 
-        console.log(data)
+        console.log(requestBody)
         navigation.navigate('HomeScreen')
     }
 
@@ -57,7 +54,7 @@ const SignUp = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.root]}>
 
-        <Text style={styles.is}>egistro</Text>
+        <Text style={styles.is}>Registro</Text>
 
         <CustomInput 
          name = 'first_name' 
@@ -115,10 +112,13 @@ const SignUp = () => {
             value: 8,
             message: 'La contraseña debe de tener minimamente 8 caracteres'
             },
-            pattern: {
-            value: /^([@#](?=[^aeiou]$)(?=[[:alnum:]]$)(?=.*[A-Z].*$).+)$/,
-            message: 'Se requiere al menos una minuscula, una mayusculla, un numero y un caracter especial.'
-            },
+            validate: (value) => {
+                return (
+                  [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
+                    pattern.test(value)
+                  ) || "must include lower, upper, number, and special chars"
+                );
+            }
         }}
         />
 
