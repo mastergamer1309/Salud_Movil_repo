@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {View, Text, TextInput, StyleSheet, Pressable} from 'react-native';
 import {Controller} from 'react-hook-form';
-
 
 const CustomInput = ({control, name, rules = {}, placeholder, secureTextEntry}) => {
     return (
@@ -33,6 +32,7 @@ const CustomInput = ({control, name, rules = {}, placeholder, secureTextEntry}) 
 
 }
 
+
 const styles = StyleSheet.create( {
     container:{
         backgroundColor: '#f5f5f5',
@@ -49,6 +49,7 @@ const styles = StyleSheet.create( {
     input:{
         fontSize: 15,
         color: '#000000',
-    },
+    }
 })
+
 export default CustomInput

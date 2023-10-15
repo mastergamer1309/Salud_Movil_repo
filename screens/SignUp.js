@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Text, View, StyleSheet, Image, useWindowDimensions, ScrollView} from 'react-native';
 import CustomInput from '../Components/CustomInput';
 import CustomButton from '../Components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
-
+import { useState } from 'react';
+import { Pressable, TextInput} from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useTogglePasswordVisibility } from '../Components/show_Hide_password';
+import CustomPassword from '../Components/CustomPassword';
 
 const SignUp = () => {
 
     const {control, handleSubmit, watch } = useForm();
+
+    const { passwordVisibility, rightIcon, handlePasswordVisibility } =
+    useTogglePasswordVisibility();
+
     const pass = watch('password');
 
     const OnRegisterPressed = (requestBody) => {
@@ -102,11 +110,10 @@ const SignUp = () => {
             message: 'Correo Electronico Invalido'}}}
         />
 
-
-        <CustomInput
+        <CustomPassword
         name='password'
         placeholder="Constraseña" 
-        secureTextEntry
+        secureTextEntry={passwordVisibility}
         control={control}
         rules ={{required: "Este campo es obligatorio.", minLength: {
             value: 8,
@@ -122,10 +129,10 @@ const SignUp = () => {
         }}
         />
 
-        <CustomInput
+        <CustomPassword
         name='repeatPassword'
         placeholder="Repetir constraseña"
-        secureTextEntry
+        secureTextEntry={passwordVisibility}
         control={control}
         rules ={{validate: value => value === pass || 'Las contraseñas no coinciden'}}
         />
@@ -133,7 +140,7 @@ const SignUp = () => {
 
         <CustomButton text="REGISTRARSE" onPress={handleSubmit(OnRegisterPressed)} />
 
-         <CustomButton 
+        <CustomButton 
         text="¿Ya tienes cuenta?" 
         onPress={OnSignInPressed} 
         type={"TERTIARY"}/>
@@ -160,6 +167,7 @@ const styles = StyleSheet.create({
     link: {
         color: '#33BBC5'
     }
+    
 })
 
 
