@@ -9,8 +9,7 @@ const ubicacion_user= require('../assets/image/ubicacion.png')
 
 
 export default function MapScreen() {
-
-  <Text>Map</Text>
+  
   const [origin, setOrigin] = React.useState({
     latitude: 12.137072,
     longitude: -86.223546,

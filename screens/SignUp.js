@@ -27,7 +27,7 @@ const SignUp = () => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            data_user: {
+            data: {
             first_name: requestBody.first_name,
             last_name: requestBody.last_name,
             username: requestBody.username,
@@ -70,7 +70,7 @@ const SignUp = () => {
          control={control}
          rules ={{required: "Este campo es obligatorio.",
         pattern: {
-        value: /^[A-Za-z]+$/,
+        value: /^[A-Za-z]/,
         message: 'No se pueden incluir simbolos ni espacios'}}}
         />
 
@@ -80,7 +80,7 @@ const SignUp = () => {
          control={control}
          rules ={{required: "Este campo es obligatorio.",
          pattern: {
-            value: /^[A-Za-z]+$/,
+            value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]*$/,
             message: 'No se pueden incluir simbolos ni espacios'}}}
         />
 
@@ -123,7 +123,7 @@ const SignUp = () => {
                 return (
                   [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
                     pattern.test(value)
-                  ) || "must include lower, upper, number, and special chars"
+                  ) || "Debe de incluir al menos una letra mayuscula, una minuscula, un numero y un caracter especial."
                 );
             }
         }}

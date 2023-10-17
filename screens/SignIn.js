@@ -13,10 +13,14 @@ import CustomInput from '../Components/CustomInput'
 import CustomButton from '../Components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 import { useForm, Controller } from 'react-hook-form'
+import CustomPassword from '../Components/CustomPassword';
+import { useTogglePasswordVisibility } from '../Components/show_Hide_password';
+
 
 const SignIn = () => {
 
-  
+  const { passwordVisibility, rightIcon, handlePasswordVisibility } =
+    useTogglePasswordVisibility();
 
   const OnSignInPressed = (requestBody) => {
     // fetch('http://165.227.82.136:8000/users/login', {
@@ -47,18 +51,30 @@ const SignIn = () => {
     //   console.log(requestBody)
 
 
-    fetch(`http://165.227.82.136:8000/users/${3}`)
-    .then(res => {
-      return res.json();
-    })
-    .then(
-      (result) => {
-        console.log(result)
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
+    fetch('http://165.227.82.136:8000/users/login', {
+        method: 'POST',
+        cors: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            data: {
+            email: requestBody.email,
+            password: requestBody.password
+            }
+        })
+        })
+        .then(response => {
+            response.json()
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+        console.log(requestBody)
+
     navigation.navigate('HomeScreen')
   }
 
@@ -105,18 +121,23 @@ const SignIn = () => {
           }}
         />
 
-        <CustomInput
-          name='password'
-          placeholder='Constraseña'
-          control={control}
-          secureTextEntry
-          rules={{
-            required: 'La contraseña es requerida',
-            minLength: {
-              value: 8,
-              message: 'La contraseña debe de tener minimamente 8 caracteres'
+<CustomPassword
+        name='password'
+        placeholder="Constraseña" 
+        secureTextEntry={passwordVisibility}
+        control={control}
+        rules ={{required: "Este campo es obligatorio.", minLength: {
+            value: 8,
+            message: 'La contraseña debe de tener minimamente 8 caracteres'
+            },
+            validate: (value) => {
+                return (
+                  [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/].every((pattern) =>
+                    pattern.test(value)
+                  ) || "Debe de incluir al menos una letra mayuscula, una minuscula, un numero y un caracter especial."
+                );
             }
-          }}
+        }}
         />
 
         <CustomButton

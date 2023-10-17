@@ -17,8 +17,8 @@ const CustomPassword = ({control, name, rules = {}, placeholder}) => {
             rules = {rules}
             render = {({field: {value, onChange, onBlur}, fieldState:{error}}) => (
                 <>
-                <View style={styles.inputContainer}>
-                <View style= {[styles.container, {borderColor: error ? 'red' : '#41C2C5'}]}>
+                <View style={styles.container}>
+                <View style= {[styles.inputContainer, {borderColor: error ? 'red' : '#41C2C5'}]}>
                         <TextInput
                         style={[styles.inputField, {}]}
                         value = {value}
@@ -28,7 +28,7 @@ const CustomPassword = ({control, name, rules = {}, placeholder}) => {
                         secureTextEntry = {passwordVisibility}
                         />
                     <Pressable onPress={handlePasswordVisibility}>
-                 <MaterialCommunityIcons name={rightIcon} size={22} color="#33BBC5" />
+                 <MaterialCommunityIcons name={rightIcon} size={25} color="#33BBC5" paddingLeft= {'8%'}/>
                     </Pressable>
                     </View>
                 </View>
@@ -46,25 +46,24 @@ const CustomPassword = ({control, name, rules = {}, placeholder}) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingHorizontal:15,
-        paddingVertical: 7,
         width: '100%',
-
+        paddingHorizontal: 15,
+        paddingVertical: 5,
+        marginVertical: 8,
       },
-      inputContainer: {
-        backgroundColor: '#f5f5f5',
-        height: '85%',
-        borderRadius: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderWidth: 2,
-        paddingRight: '5%',
+    inputContainer: {
+      backgroundColor: '#f5f5f5',
+      width: '86.4%',
+      borderRadius: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: '#33BBC5',
       },
-      inputField: {
-        padding: 14,
+    inputField: {
+        padding: 10,
         fontSize: 15,
         width: '79%',
         color: '#000000'
