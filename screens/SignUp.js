@@ -70,7 +70,7 @@ const SignUp = () => {
          control={control}
          rules ={{required: "Este campo es obligatorio.",
         pattern: {
-        value: /^[A-Za-z]/,
+        value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]*$/,
         message: 'No se pueden incluir simbolos ni espacios'}}}
         />
 
@@ -80,7 +80,7 @@ const SignUp = () => {
          control={control}
          rules ={{required: "Este campo es obligatorio.",
          pattern: {
-            value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]*$/,
+            value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]*$/,
             message: 'No se pueden incluir simbolos ni espacios'}}}
         />
 
