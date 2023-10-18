@@ -7,7 +7,7 @@ herramientas usadas: https://reactnavigation.org/docs/tab-based-navigation/
 Dependencias:
 
 npm install @react-navigation/native
-mpm install expo-cli
+npm install expo-cli
 npm install expo
 expo install react-native-screens 
 expo install react-native-safe-area-context
