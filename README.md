@@ -5,7 +5,7 @@ repo creado por el profe
 herramientas usadas: https://reactnavigation.org/docs/tab-based-navigation/
 
 Dependencias:
-
+npm install
 npm install @react-navigation/native
 npm install expo-cli
 npm install expo
