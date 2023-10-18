@@ -4,7 +4,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_MAPS_KEY} from "@env";
-import CustomButton from '../Components/CustomButton'
 
 const ubicacion_user= require('../assets/image/ubicacion.png')
 
