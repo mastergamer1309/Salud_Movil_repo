@@ -7,17 +7,23 @@ const HomeScreen = () => {
     const navigation = useNavigation();
 
     return(
-        <View>
-            <Text
-                style={{
-                    fontSize: 30,
-                    textAlign: "center",
-                    marginTop: "20%"
-
-                }}
-           >Home  </Text>
+        <View style={styles.root}>
+            <Text style={styles.title}>Home</Text>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    root: {
+        alignItems: 'center',
+    },
+    title: {
+        fontSize: 25,
+        color: '#614bc3',
+        fontWeight: 'bold',
+        paddingTop: 80,
+        textAlign: 'center'
+    }
+})
 
 export default HomeScreen;  
