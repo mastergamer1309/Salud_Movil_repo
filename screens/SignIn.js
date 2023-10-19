@@ -23,34 +23,6 @@ const SignIn = () => {
     useTogglePasswordVisibility();
 
   const OnSignInPressed = (requestBody) => {
-    // fetch('http://165.227.82.136:8000/users/login', {
-    //     method: 'POST',
-    //     cors: 'cors',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         data_user: {
-    //         email: requestBody.email,
-    //         password: requestBody.password
-    //         }
-    //     })
-    //     })
-    //     .then(response => {
-    //       console.log(JSON.stringify(response))
-    //       response.json()
-    //   })
-    //   .then(data => {
-    //       console.log('Obteniendo Data')
-    //       console.log(data)
-    //   })
-    //   .catch(error => {
-    //       console.log('Error')
-    //       console.error(error)
-    //   })
-    //   console.log(requestBody)
-
-
     fetch('http://165.227.82.136:8000/users/login', {
         method: 'POST',
         cors: 'cors',
@@ -65,15 +37,19 @@ const SignIn = () => {
         })
         })
         .then(response => {
-            response.json()
-        })
-        .then(data => {
-            console.log(data)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-        console.log(requestBody)
+          console.log(JSON.stringify(response))
+          response.json()
+      })
+      .then(data => {
+          console.log('Obteniendo Data')
+          console.log(data)
+      })
+      .catch(error => {
+          console.log('Error')
+          console.error(error)
+      })
+      console.log(requestBody)
+
 
     navigation.navigate('HomeScreen')
   }
@@ -88,6 +64,7 @@ const SignIn = () => {
 
   const { height } = useWindowDimensions()
   const navigation = useNavigation()
+  
   const {
     control,
     handleSubmit,

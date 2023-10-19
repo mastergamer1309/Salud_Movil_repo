@@ -45,6 +45,7 @@ import SignUp from './screens/SignUp'
 import ForgotPassword from './screens/ForgotPassword'
 import NewPassword from './screens/NewPassword'
 import AddMeetings from "./screens/AddMeetings";
+import Addremember from "./screens/Addremember";
 
 
 
@@ -161,6 +162,8 @@ function MyStacks(){
           <Stack.Screen name='HomeScreen' component={MyTabs} />
           <Stack.Screen name='AddDrugs' component={addDrugs} />
           <Stack.Screen name='AddMeetings' component={AddMeetings} />
+          <Stack.Screen name='Addremember' component={Addremember} />
+
 
         </Stack.Navigator>
     )

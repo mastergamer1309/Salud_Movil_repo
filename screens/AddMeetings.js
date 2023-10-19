@@ -4,9 +4,11 @@ import CustomInput from '../Components/CustomInput'
 import CustomButton from '../Components/CustomButton'
 import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller } from 'react-hook-form'
+import CustomDateInput from '../Components/CustomDateInput';
 
 
 const AddMeetings = () => {
+
 
     const {
         control,
@@ -15,8 +17,9 @@ const AddMeetings = () => {
       } = useForm()
 
     const navigation = useNavigation();
-    OnAddPressed = ()=> {
-        fetch('http://165.227.82.136:8000/users/appointment/1', {
+    OnAddPressed = (requestBody)=> {
+
+      fetch('http://165.227.82.136:8000/users/appointment/1', {
         method: 'POST',
         cors: 'cors',
         headers: {
@@ -24,21 +27,52 @@ const AddMeetings = () => {
         },
         body: JSON.stringify({
             data: {
-            email: requestBody.email,
-            password: requestBody.password
+              date_: requestBody.date_,
+              time_: requestBody.password,
+              place: requestBody.place,
+              doctor: requestBody.doctor
             }
         })
         })
         .then(response => {
-            response.json()
-        })
-        .then(data => {
-            console.log(data)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-        console.log(requestBody)
+          console.log(JSON.stringify(response))
+          response.json()
+      })
+      .then(data => {
+          console.log('Obteniendo Data')
+          console.log(data)
+      })
+      .catch(error => {
+          console.log('Error')
+          console.error(error)
+      })
+      console.log(requestBody)
+        // fetch('http://165.227.82.136:8000/users/appointment/1', {
+        // method: 'POST',
+        // cors: 'cors',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify({
+        //     data: {
+        //     date_: requestBody.date_,
+        //     time_: requestBody.password,
+        //     place: requestBody.place,
+        //     doctor: requestBody.doctor
+        //     }
+        // })
+        // })
+        // .then(response => {
+        //     response.json()
+        // })
+        // .then(data => {
+        //     console.log(data)
+        // })
+        // .catch(error => {
+        //     console.error(error)
+        // })
+        // console.log(requestBody)
+        navigation.navigate('HomeScreen')
     }
 
     OnExitPressed = ()=> {
@@ -50,7 +84,7 @@ const AddMeetings = () => {
     
         <CustomInput
           name='date_'
-          placeholder='Fecha'
+          placeholder='DD/MM/YYYY'
           control={control}
           rules={{required:"Este campo es obligatorio si desea aagregar citas."}}
         />
@@ -73,11 +107,14 @@ const AddMeetings = () => {
           name='doctor'
           placeholder='Nombre de su doctor'
           control={control}
-          rules={{required:"Este campo es obligatorio si desea aagregar citas."}}
+          rules={{required:"Este campo es obligatorio si desea aagregar citas.",
+          pattern: {
+          value: /^[a-zA-ZÀ-ÿ\u00f1\u00d1]*$/,
+          message: 'No se pueden incluir simbolos ni espacios'}}}
         />
 
 
-      <CustomButton text={'Agregar'} onPress={OnAddPressed}/>
+      <CustomButton text={'Agregar'} onPress={handleSubmit(OnAddPressed)}/>
       <CustomButton text={'Salir'} onPress={OnExitPressed} type='SECONDARY'/>
     </View>
   )

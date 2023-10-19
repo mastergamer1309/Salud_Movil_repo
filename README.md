@@ -14,6 +14,5 @@ expo install react-native-safe-area-context
 npm install @react-navigation/native-stack
 npx expo install react-native-gesture-handler
 npm install react-hook-form
-npm install react-datepicker --save
 //mapa jose
 npx expo install expo-location dotenv react-native-maps react-native-maps-directions
